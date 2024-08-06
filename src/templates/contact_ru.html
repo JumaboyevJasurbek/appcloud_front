@@ -1,0 +1,485 @@
+{% extends 'base.html' %}
+{% block title %}Contact Pge Ru{% endblock %}
+{% block content %}
+{% load static %}
+
+
+    <div class="page-wrapper relative z-[1] bg-white">
+        <!--...::: Header Start :::... -->
+        <header class="site-header site-header--sticky mobile-sticky-enable is--white py-3" id="sticky-menu">
+            <div class="container-default">
+                <div class="flex items-center justify-between gap-x-8">
+                    <!-- Header Logo -->
+                    <a class href='{% url "home_ru" %}'>
+                        <img src="{% static 'assets/img/logo-full-dark.png' %}" alt="Masco" width="109" height="24" />
+                    </a>
+                    <!-- Header Logo -->
+
+                    <!-- Header Navigation -->
+                    <div class="menu-block-wrapper">
+                        <div class="menu-overlay"></div>
+                        <nav class="menu-block" id="append-menu-header">
+                            <div class="mobile-menu-head">
+                                <div class="go-back">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </div>
+                                <div class="current-menu-title"></div>
+                                <div class="mobile-menu-close">&times;</div>
+                            </div>
+                            <ul class="site-menu-main">
+                                <li class="nav-item nav-item-has-children">
+                                    <a class='nav-link-item drop-trigger' href='index_ru.html'>Главная</a>
+                                </li>
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#section-about" class="nav-link-item drop-trigger">О нас</a>
+                                </li>
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#section-feature" class="nav-link-item drop-trigger">Особенность</a>
+                                </li>
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#section-pricing" class="nav-link-item drop-trigger">Цены</a>
+                                </li>
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#section-team" class="nav-link-item drop-trigger">Команда</a>
+                                </li>
+                                <!-- <li class="nav-item nav-item-has-children">
+                                    <div class="dropdown ">
+                                        <button class="dropbtn">Eng</button>
+                                        <div class="dropdown-content">
+                                            <a href="#">Uz</a>
+                                            <a href="#">Ru</a>
+                                        </div>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Header Navigation -->
+
+                    <!-- Header User Event -->
+                    <div class="flex items-center gap-6" id="gap">
+                        <div class="dropdown ">
+                            <button class="dropbtn">Ru</button>
+                            <div class="dropdown-content">
+                                <a href="{% url 'contact_uz' %}">Uz</a>
+                                <a href="{% url 'contact_eng' %}">Eng</a>
+                            </div>
+                        </div>
+                        <a class='btn is-lime btn-animation group hidden rounded-[3px] sm:inline-block'
+                            href='https://t.me/appclouduz_bot'><span>Telegram-бот 🚀</span></a>
+                        <!-- Responsive Offcanvas Menu Button -->
+                        <div class="block lg:hidden">
+                            <button id="openBtn" class="hamburger-menu mobile-menu-trigger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Header User Event -->
+                </div>
+            </div>
+        </header>
+        <!--...::: Header End :::... -->
+
+        <main class="main-wrapper relative overflow-hidden">
+            <!--...::: Breadcrumb Section Start :::... -->
+            <section class="section-breadcrumb">
+                <!-- Breadcrumb Section Spacer -->
+                <div class="breadcrumb-wrapper">
+                    <!-- Section Container -->
+                    <div class="container-default">
+                        <div class="breadcrumb-block">
+                            <h1 class="breadcrumb-title">Связаться с нами</h1>
+                            <ul class="breadcrumb-nav">
+                                <li><a href='{% url "home_ru" %}'>Главная</a></li>
+                                <li>Связаться с нами</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Section Container -->
+
+                    <!-- Breadcrumb Shape - 1 -->
+                    <div class="absolute left-0 top-0 -z-10">
+                        <img src="{% static 'assets/img/elements/breadcrumb-shape-1.svg' %}" alt="hero-shape-1" width="291"
+                            height="380" />
+                    </div>
+
+                    <!-- Breadcrumb Shape - 2 -->
+                    <div class="absolute bottom-0 right-0 -z-[1]">
+                        <img src="{% static 'assets/img/elements/breadcrumb-shape-2.svg' %}" alt="hero-shape-2" width="291"
+                            height="380" />
+                    </div>
+                </div>
+                <!-- Breadcrumb Section Spacer -->
+            </section>
+            <!--...::: Breadcrumb Section End :::... -->
+
+            <!--...::: Contact Info Section Start :::... -->
+            <div class="section-contact-info">
+                <!-- Section Space -->
+                <div class="section-space">
+                    <!-- Section Container -->
+                    <div class="container-default">
+                        <!-- Contact Info List -->
+                        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                            <!-- Contact Info Item -->
+                            <div class="jos" data-jos_delay="0">
+                                <div class="hover-solid-shadow h-full">
+                                    <div class="h-full rounded-[10px] border-2 border-ColorBlack bg-white p-[30px]">
+                                        <img src="{% static 'assets/img/icons/icon-duotone-chat.svg' %}" alt="icon-duotone-chat"
+                                            width="64" height="60" class="mb-[30px] h-[60px] w-auto" />
+                                        <div>
+                                            <div class="mb-4 text-2xl font-semibold -tracking-[0.5]">
+                                                Поболтай с нами
+                                            </div>
+                                            <p>
+                                                Ждем вас на помощь каждый понедельник-пятницу с 10.00.
+                                                с утра до 18:00 по восточному стандартному времени легко.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Contact Info Item -->
+                            <!-- Contact Info Item -->
+                            <div class="jos" data-jos_delay="0.3">
+                                <div class="hover-solid-shadow h-full">
+                                    <div class="h-full rounded-[10px] border-2 border-ColorBlack bg-white p-[30px]">
+                                        <img src="{% static 'assets/img/icons/icon-duotone-phone.svg' %}" alt="icon-duotone-phone"
+                                            width="64" height="60" class="mb-[30px] h-[60px] w-auto" />
+                                        <div>
+                                            <div class="mb-4 text-2xl font-semibold -tracking-[0.5]">
+                                                Позвоните нам
+                                            </div>
+                                            <p>
+                                                Позвоните нам по адресу
+                                                <a href="tel:++998976127774"
+                                                    class="font-semibold hover:text-ColorBlue">+998(97)-612-77-74</a>
+                                                    Каждый понедельник-пятницу с 10:00 до 18:00.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Contact Info Item -->
+                            <!-- Contact Info Item -->
+                            <div class="jos" data-jos_delay="0.6">
+                                <div class="hover-solid-shadow h-full">
+                                    <div class="h-full rounded-[10px] border-2 border-ColorBlack bg-white p-[30px]">
+                                        <img src="{% static 'assets/img/icons/icon-duotone-message.svg' %}" alt="icon-duotone-message"
+                                            width="64" height="60" class="mb-[30px] h-[60px] w-auto" />
+                                        <div>
+                                            <div class="mb-4 text-2xl font-semibold -tracking-[0.5]">
+                                                Свяжитесь с нами по электронной почте
+                                            </div>
+                                            <p>
+                                                Напишите нам письмо по адресу
+                                                <a href="appclouduz@gmail.com"
+                                                    class="font-semibold underline underline-offset-4 hover:text-ColorBlue">appclouduz@gmail.com</a>
+                                                    и вы получите ответ в течение 24 часов.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Contact Info Item -->
+                            <!-- Contact Info List -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Section Space -->
+                </div>
+            </div>
+            <!--...::: Contact Info Section End :::... -->
+
+            <!--...::: Contact Section Start :::... -->
+            <section class="section-contact">
+                <!-- Section Space -->
+                <div class="section-space-bottom">
+                    <!-- Section Container -->
+                    <div class="container-custom has-container-custom">
+                        <!-- Contact Section Area -->
+                        <div class="grid gap-[60px] lg:grid-cols-[0.85fr_1fr] lg:gap-20 xl:gap-[100px] xxl:gap-[134px]">
+                            <!-- Contact Content Block -->
+                            <div class="jos">
+                                <!-- Section Wrapper -->
+                                <div>
+                                    <!-- Section Block -->
+                                    <div class="mb-5">
+                                        <h2>
+                                            Заполните эту форму, мы быстро свяжемся с вами
+                                        </h2>
+                                    </div>
+                                    <!-- Section Block -->
+                                    <p>
+                                        Мы здесь чтобы помочь вам! Расскажите нам, чем мы можем помочь, и мы сделаем это.
+                                        свяжитесь с экспертом в течение следующих 24 часов
+                                    </p>
+                                    <!-- Horizontal Line Separator -->
+                                    <div class="my-7 h-px w-full bg-ColorBlack opacity-10 xl:my-10 xxl:my-14"></div>
+                                    <!-- BlockQuote Block-->
+                                    <div>
+                                        <div
+                                            class="mb-[25px] flex justify-center gap-1 text-[#FFC947] lg:justify-start">
+                                            <span><i class="fa-sharp fa-solid fa-star"></i></span>
+                                            <span><i class="fa-sharp fa-solid fa-star"></i></span>
+                                            <span><i class="fa-sharp fa-solid fa-star"></i></span>
+                                            <span><i class="fa-sharp fa-solid fa-star"></i></span>
+                                            <span><i class="fa-sharp fa-solid fa-star"></i></span>
+                                        </div>
+                                        <blockquote class="mb-6 font-semibold italic text-opacity-80">
+                                            «Snaga проделала для нас исключительную работу. Продолжайте в том же духе.
+                                            отличная цифровая работа. Чувак, эта штука становится
+                                            все лучше и лучше, когда я узнаю об этом больше. У меня есть
+                                            получил как минимум в 50 раз большую ценность от Snaga. Это собака
+                                            стоит гораздо больше, чем я заплатил».
+                                        </blockquote>
+                                        <div class="flex flex-col items-center gap-4 lg:flex-row">
+                                            <img src="{% static 'assets/img/th-1/about-hero-user-blockquote-img-2.jpg' %}"
+                                                alt="about-hero-user-blockquote-img-2" width="60" height="60"
+                                                class="mx-auto h-[60px] w-[60px] rounded-[50%] lg:mx-0" />
+                                            <div>
+                                                <span class="block font-semibold text-ColorBlack">AppCloud</span>
+                                                <span class="text-sm text-opacity-80">CEO & Co-founder @ Company</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Section Wrapper -->
+                            </div>
+                            <!-- Contact Content Block -->
+
+                            <!-- Contact Form Block -->
+                            <div class="jos xm:p-10 rounded-[10px] border border-ColorBlack/50 bg-ColorOffWhite p-[30px]">
+                                <form action="{% url 'contact_uz' %}" method="post">
+                                    {% csrf_token %}
+                                    <!-- Form Group List -->
+                                    <div class="flex flex-col gap-6">
+                                        <!-- Form Group Item -->
+                                        <div>
+                                            <label for="fullname" class="mb-[10px] block text-left font-semibold">Ваше имя</label>
+                                            <input type="text" name="fullname" id="fullname" placeholder="Введите свое полное имя"
+                                                class="w-full rounded-[50px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue"
+                                                required />
+                                        </div>
+                                        <!-- Form Group Item -->
+                                        <div>
+                                            <label for="email" class="mb-[10px] block text-left font-semibold">Адрес электронной почты</label>
+                                            <input type="email" name="email" id="email" placeholder="Введите адрес электронной почты"
+                                                class="w-full rounded-[50px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue"
+                                                required />
+                                        </div>
+                                        <div>
+                                            <label for="phone" class="mb-[10px] block text-left font-semibold">Номер телефона</label>
+                                            <input type="tel" name="phone" id="phone" placeholder="Введите свой номер телефона"
+                                                class="w-full rounded-[50px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue"
+                                                required pattern="(\+998[0-9]{9})|(\+998 [0-9]{3} [0-9]{2} [0-9]{2})|(\+998-[0-9]{3}-[0-9]{2}-[0-9]{2})|([0-9]{3}-[0-9]{2}-[0-9]{2})|([0-9]{7})|([0-9]{9})|([0-9]{12})" />
+                                        </div>
+                                        <!-- Form Group Item -->
+                                        <div>
+                                            <label for="subject" class="mb-[10px] block text-left font-semibold">Напишите свое сообщение</label>
+                                            <textarea type="text" name="subject" id="subject" placeholder="Оставьте заявку здесь..."
+                                                class="min-h-[130px] w-full rounded-[30px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue"
+                                                      require></textarea>
+                                        </div>
+                                        <!-- Form Group Item -->
+                                    </div>
+                                    <!-- Form Group List -->
+                                    <button type="submit" class="btn is-blue is-rounded is-large mt-8">
+                                        Xabar yuborish
+                                    </button>
+                                </form>
+                            </div>
+                            <!-- Contact Form Block -->
+                        </div>
+                        <!-- Contact Section Area -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!--...::: Contact Section End :::... -->
+        </main>
+
+        <!--...::: Footer Section Start :::... -->
+        <footer class="section-footer">
+            <div class="bg-ColorBlack">
+                <!-- Footer Area Top -->
+                <div class="relative z-10">
+                    <!-- Footer Top Spacing -->
+                    <div class="pb-[60px] pt-20 lg:pb-20 lg:pt-[100px] xl:pt-[120px]">
+                        <!-- Section Container -->
+                        <div class="container-default">
+                            <!-- Section Wrapper -->
+                            <div
+                                class="flex flex-wrap items-center justify-center text-center lg:text-left lg:justify-between gap-8">
+                                <!-- Section Block -->
+                                <div class="max-w-[400px] md:max-w-[500px] lg:max-w-[550px]">
+                                    <h2 class="text-white">
+                                        Готовы развивать свой бизнес в цифровом формате?
+                                    </h2>
+                                </div>
+                                <!-- Section Block -->
+                                <a class='btn is-blue is-rounded btn-animation is-large group'
+                                    href='https://t.me/appclouduz_bot'><span>Давайте начнем проект</span></a>
+                            </div>
+                            <!-- Section Wrapper -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Footer Top Spacing -->
+
+                    <!-- CTA Shape -->
+                    <div class="absolute right-[9%] top-8 -z-10 hidden xxl:block">
+                        <img src="{% static 'assets/img/elements/cta-1-shape-1.svg' %}" alt="cta-1-shape-1" width="115" height="130" />
+                    </div>
+                </div>
+                <!-- Footer Area Top -->
+
+                <!-- Horizontal Line Separator -->
+                <div class="horizontal-line bg-white"></div>
+                <!-- Horizontal Line Separator -->
+
+                <!-- Footer Area Center -->
+                <div class="text-white">
+                    <!-- Footer Center Spacing -->
+                    <div class="py-[60px] lg:py-20">
+                        <!-- Section Container -->
+                        <div class="container-default">
+                            <!-- Footer Widget List -->
+                            <div
+                                class="grid gap-x-16 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_repeat(3,_auto)] xl:gap-x-24 xxl:gap-x-[134px]">
+                                <!-- Footer Widget Item -->
+                                <div class="flex flex-col gap-y-7 md:col-span-3 lg:col-span-1">
+                                    <!-- Footer Logo -->
+                                    <a href='{% url "home_ru" %}'>
+                                        <img src="{% static 'assets/img/logo-blue-light.png' %}" alt="Masco" width="109" height="24" />
+                                    </a>
+                                    <!-- Footer Content -->
+                                    <div>
+                                        <!-- Footer About Text -->
+                                        <div class="lg:max-w-[416px]">
+                                            Мы предлагаем полный спектр ИТ-услуг для повышения эффективности вашей
+                                            бизнес.
+                                        </div>
+                                        <!-- Footer Mail -->
+                                        <a href="appclouduz@gmail.com"
+                                            class="my-6 block underline-offset-4 transition-all duration-300 hover:underline">appclouduz@gmail.com</a>
+                                        <!-- Footer Social Link -->
+                                        <div class="flex flex-wrap gap-5">
+                                            <a href="https://t.me/appclouduz_bot" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-[#FDFBF9]/10 text-sm text-[#FDFBF9] transition-all duration-300 hover:bg-ColorLime hover:text-[#121212]"
+                                                aria-label="twitter">
+                                                <i class="fa-brands fa-telegram"></i>
+                                            </a>
+                                            <a href="https://www.instagram.com/appclouduz" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-[#FDFBF9]/10 text-sm text-[#FDFBF9] transition-all duration-300 hover:bg-ColorLime hover:text-[#121212]"
+                                                aria-label="instagram">
+                                                <i class="fa-brands fa-instagram"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Footer Content -->
+                                </div>
+                                <!-- Footer Widget Item -->
+
+                                <!-- Footer Widget Item -->
+                                <div class="flex flex-col gap-y-6 md:col-span-1 lg:col-span-1">
+                                    <!-- Footer Title -->
+                                    <div class="text-xl font-semibold capitalize">
+                                        Страницы утилит
+                                    </div>
+                                    <!-- Footer Title -->
+
+                                    <!-- Footer Navbar -->
+                                    <ul class="flex flex-col gap-y-[10px] capitalize">
+                                        <li class="nav-item nav-item-has-children">
+                                            <a class='nav-link-item drop-trigger' href="{% url 'home_ru' %}">Главная</a>
+                                        </li>
+                                        <li class="nav-item nav-item-has-children">
+                                            <a href="#section-about" class="nav-link-item drop-trigger">О нас</a>
+                                        </li>
+                                        <li class="nav-item nav-item-has-children">
+                                            <a href="#section-feature" class="nav-link-item drop-trigger">Особенность</a>
+                                        </li>
+                                        <li class="nav-item nav-item-has-children">
+                                            <a href="#section-pricing" class="nav-link-item drop-trigger">Цены</a>
+                                        </li>
+                                        <li class="nav-item nav-item-has-children">
+                                            <a href="#section-team" class="nav-link-item drop-trigger">Команда</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Footer Widget Item-->
+
+                                <!-- Footer Widget Item -->
+                                <div class="flex flex-col gap-y-6 md:col-span-1 lg:col-span-1">
+                                    <!-- Footer Title -->
+                                    <div class="text-xl font-semibold capitalize">
+                                        Ресурсы
+                                    </div>
+                                    <!-- Footer Title -->
+
+                                    <!-- Footer Navbar -->
+                                    <ul class="flex flex-col gap-y-[10px] capitalize">
+                                        <li>
+                                            <a href="https://www.example.com/" target="_blank" rel="noopener noreferrer"
+                                                class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Support</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.example.com/" target="_blank" rel="noopener noreferrer"
+                                                class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Privacy
+                                                policy</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.example.com/" target="_blank" rel="noopener noreferrer"
+                                                class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Terms
+                                                & Conditions</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.example.com/" target="_blank" rel="noopener noreferrer"
+                                                class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Strategic
+                                                finance</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.example.com/" target="_blank" rel="noopener noreferrer"
+                                                class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Video
+                                                guide</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Footer Widget Item -->
+                            </div>
+                            <!-- Footer Widget List -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Footer Center Spacing -->
+                </div>
+                <!-- Footer Area Center -->
+
+                <!-- Footer Bottom -->
+                <div class="bg-white bg-opacity-5">
+                    <!-- Footer Bottom Spacing -->
+                    <div class="py-[18px]">
+                        <!-- Section Container -->
+                        <div class="container-default">
+                            <div class="text-center text-white text-opacity-80">
+                                &copy;Авторское право 2024. Все права защищены AppCloud.
+                            </div>
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Footer Bottom Spacing -->
+                </div>
+                <!-- Footer Bottom -->
+            </div>
+        </footer>
+        <!--...::: Footer Section End :::... -->
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,1131 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+{% load static %}
+
+
+
+    <div class="page-wrapper relative z-[1] bg-[#FDFBF9]">
+        <!--...::: Header Start :::... -->
+        <header class="site-header site-header--sticky mobile-sticky-enable is--white py-3" id="sticky-menu">
+            <div class="container-default">
+                <div class="flex items-center justify-between gap-x-8">
+                    <!-- Header Logo -->
+                    <a class href='{% url "home" %}'>
+                        <img src="{% static 'assets/img/logo-full-dark.png' %}" alt="Masco" width="109" height="24" />
+                    </a>
+                    <!-- Header Logo -->
+
+                    <!-- Header Navigation -->
+                    <div class="menu-block-wrapper">
+                        <div class="menu-overlay"></div>
+                        <nav class="menu-block" id="append-menu-header">
+                            <div class="mobile-menu-head">
+                                <div class="go-back">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </div>
+                                <div class="current-menu-title"></div>
+                                <div class="mobile-menu-close">&times;</div>
+                            </div>
+                            <ul class="site-menu-main">
+                                <li class="nav-item nav-item-has-children">
+                                    <a class='nav-link-item drop-trigger' href='{% url "home" %}'>Asosiy-sahifa</a>
+                                </li>
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#section-about" class="nav-link-item drop-trigger">Batafsil</a>
+                                </li>
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#section-feature" class="nav-link-item drop-trigger">Xususiyat</a>
+                                </li>
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#section-team" class="nav-link-item drop-trigger">Jamoa</a>
+                                </li>
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="{% url 'contact_uz' %}" class="nav-link-item drop-trigger">Bog'lanish</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Header Navigation -->
+
+                    <!-- Header User Event -->
+                    <div class="flex items-center gap-6" id="gap">
+                        <div class="dropdown ">
+                            <button class="dropbtn">Uz</button>
+                            <div class="dropdown-content">
+                                <a href="{% url 'home_ru' %}">Ru</a>
+                                <a href="{% url 'home_eng' %}">Eng</a>
+                            </div>
+                        </div>
+                        <a class='btn is-lime btn-animation group hidden rounded-[3px] sm:inline-block'
+                            href='https://t.me/appclouduz_bot'><span>Telegram-bot🚀</span></a>
+                        <!-- Responsive Offcanvas Menu Button -->
+                        <div class="block lg:hidden">
+                            <button id="openBtn" class="hamburger-menu mobile-menu-trigger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Header User Event -->
+                </div>
+            </div>
+        </header>
+        <!--...::: Header End :::... -->
+
+        <main class="main-wrapper relative overflow-hidden">
+            <!--...::: Hero Section Start :::... -->
+            <section class="section-hero">
+                <!-- Section Background -->
+                <div class="relative z-10 overflow-hidden">
+                    <!-- Hero Section Space -->
+                    <div class="pt-[105px] sm:pt-[145px] lg:pt-[185px]">
+                        <!-- Section Container -->
+                        <div class="container-default relative z-10">
+
+                            {% for main_page in main_page %}
+                                <div class="container-default relative z-10">
+                                    <!-- Hero Area -->
+                                    <div class="text-center">
+                                        <h1
+                                            class="jos -trackig-[1px] mx-auto mb-6 font-PublicSans text-5xl font-bold leading-[1.06] text-[#121212] md:max-w-[80%] md:text-[60px] lg:max-w-[70%] lg:text-[70px] xl:max-w-[856px] xl:text-[90px]">
+                                            {{ main_page.title_uz }}
+                                        </h1>
+                                        <p class="jos mx-auto mb-8 max-w-[658px] lg:mb-[50px]">
+                                            {{ main_page.short_title_uz }}
+                                        </p>
+                                        <div class="jos flex flex-wrap justify-center gap-[18px]">
+                                            <a href="{% url 'contact_uz' %}"
+                                                class="btn is-outline-black is-large btn-animation group rounded-[3px]"><span>Ariza qoldirish</span></a>
+                                        </div>
+                                    </div>
+                                    <!-- Hero Area -->
+
+                                    <!-- Hero Images -->
+                                    <div
+                                        class="-z-10 -mb-[17px] mt-[60px] grid grid-cols-1 gap-8 sm:grid-cols-2 md:flex md:gap-10 lg:gap-14">
+                                        <div class="jos md:rotate-[5deg]" data-jos_animation="fade-left" data-jos_delay="0.3">
+                                            <img src="{{ main_page.image1.url }}" alt="hero-img-1" width="279" height="307"
+                                                class="h-full w-full rounded-[5px] object-cover md:h-auto" />
+                                        </div>
+                                        <div class="jos md:-rotate-[5deg] md:self-end" data-jos_animation="fade-left"
+                                            data-jos_delay="0">
+                                            <img src="{{ main_page.image2.url }}" alt="hero-img-2" width="279" height="250"
+                                                class="h-full w-full rounded-[5px] object-cover md:h-auto" />
+                                        </div>
+                                        <div class="jos md:rotate-[5deg] md:self-end" data-jos_animation="fade-right"
+                                            data-jos_delay="0">
+                                            <img src="{{ main_page.image3.url }}" alt="hero-img-3" width="279" height="250"
+                                                class="h-full w-full rounded-[5px] object-cover md:h-auto" />
+                                        </div>
+                                        <div class="jos md:-rotate-[5deg]" data-jos_animation="fade-right" data-jos_delay="0.3">
+                                            <img src="{{ main_page.image4.url }}" alt="hero-img-4" width="279" height="307"
+                                                class="h-full w-full rounded-[5px] object-cover md:h-auto" />
+                                        </div>
+                                    </div>
+                                    <!-- Hero Images -->
+                                </div>
+                            {% endfor %}
+
+
+                            <!-- Hero Background Shape - 1 -->
+                            <div class="absolute left-0 -z-10 hidden md:block lg:-top-[70px]">
+                                <img src="{% static 'assets/img/elements/hero-8-content-shape.svg' %}" alt="hero-8-content-shape"
+                                    width="291" height="331" class="h-auto w-[230px] xxl:h-[331px] xxl:w-[291px]" />
+                            </div>
+                            <!-- Hero Background Shape - 2 -->
+                            <div class="absolute top-[100px] -z-10 hidden md:block lg:right-10 xxl:right-0">
+                                <img src="{% static 'assets/img/elements/home-8-dot-shape.svg' %}" alt="home-8-dot-shape" width="126"
+                                    height="275" class="h-[200px] w-auto xxl:h-[275px] xxl:w-[125px]" />
+                            </div>
+                            <!-- Hero Space -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Hero Background Shape - 2 -->
+                    <div class="absolute bottom-0 z-10 hidden w-full md:block">
+                        <img src="{% static 'assets/img/elements/section-devider-black.svg' %}" alt="home-8-dot-shape"
+                            class="w-full" />
+                    </div>
+                </div>
+                <!-- Section Background -->
+            </section>
+            <!--...::: Hero Section End :::... -->
+
+            <!--...::: Fact Section Start :::... -->
+            <section class="section-fact">
+                <!-- Section Background -->
+                <div class="z-10 bg-[#121212]">
+                    <!-- Section Space -->
+                    <div class="section-space">
+                        <!-- Section Container -->
+                        <div class="container-default">
+                            <!-- Fact Area -->
+                            <div
+                                class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[0.8fr_minmax(0,_1fr)] xl:gap-20 xxl:gap-[100px]">
+                                <!-- Section Wrapper -->
+                                <div>
+                                    <!-- Section Block -->
+                                    <div class="mb-5">
+                                        <h2
+                                            class="text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#FDFBF9] lg:text-left lg:text-5xl xl:text-[56px]">
+                                            Biz samarali ishlash orqali ishonchni qozonamiz
+                                        </h2>
+                                    </div>
+                                    <!-- Section Block -->
+                                </div>
+                                <!-- Section Wrapper -->
+                                <!-- Fact List -->
+
+                                {% for rating_department in rating_department %}
+                                    <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-3">
+                                        <!-- Fact Item -->
+                                        <div
+                                            class="relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-ColorPurple first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block">
+                                            <div>
+                                                <div class="mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]"
+                                                    data-module="countup">
+                                                    <span class="start-number" data-countup-number="{{rating_department.years_of_experience}}">{{rating_department.years_of_experience}}</span>+
+                                                </div>
+                                                <span class="text-[#FDFBF9]/60">Yillik tajriba</span>
+                                            </div>
+                                        </div>
+                                        <!-- Fact Item -->
+                                        <!-- Fact Item -->
+                                        <div
+                                            class="relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-ColorPurple first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block">
+                                            <div>
+                                                <div class="mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]"
+                                                    data-module="countup">
+                                                    <span class="start-number" data-countup-number="{{rating_department.customers_worldwide}}">{{rating_department.customers_worldwide}}</span>K
+                                                </div>
+                                                <span class="text-[#FDFBF9]/60">Butun dunyo bo'ylab mijozlar</span>
+                                            </div>
+                                        </div>
+                                        <!-- Fact Item -->
+                                        <!-- Fact Item -->
+                                        <div
+                                            class="relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-ColorPurple first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block">
+                                            <div>
+                                                <div class="mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]"
+                                                    data-module="countup">
+                                                    <span class="start-number" data-countup-number="{{rating_department.project_completed}}">{{rating_department.project_completed}}</span>+
+                                                </div>
+                                                <span class="text-[#FDFBF9]/60">Loyiha yakunlandi</span>
+                                            </div>
+                                        </div>
+                                        <!-- Fact Item -->
+                                    </div>
+                                {% endfor %}
+
+                                <!-- Fact List -->
+                            </div>
+                            <!-- Fact Area -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Section Space -->
+                </div>
+                <!-- Section Background -->
+            </section>
+            <!--...::: Fact Section End :::... -->
+
+            <!--...::: Content Section Start :::... -->
+            <section class="section-content" id="section-about">
+                <div class="relative z-10">
+                    <!-- Section Space -->
+                    <div class="section-space">
+                        <!-- Section Container -->
+                        <div class="container-default">
+                            <div class="flex flex-col gap-y-20 lg:gap-y-[100px] xl:gap-y-[120px]">
+                                <!-- Content Area Single -->
+                                <div class="grid items-center gap-10 md:grid-cols-2 lg:gap-24 xl:gap-60">
+                                    <!-- Content Block Left -->
+                                    <div class="jos order-1 md:order-2" data-jos_animation="fade-right">
+                                        <!-- Section Wrapper -->
+                                        <div>
+                                            <!-- Section Block -->
+                                            <div class="mb-5">
+                                                <h2
+                                                    class="font-PublicSans text-4xl font-bold leading-[1.14] text-[#121212] lg:text-left lg:text-5xl xl:text-[56px]">
+                                                    Bizning konsalting firmamizning hikoyasi
+                                                </h2>
+                                            </div>
+                                            <!-- Section Block -->
+                                        </div>
+                                        <!-- Section Wrapper -->
+                                        <p class="mb-5">
+                                            Biz yangi va intiluvchanlar uchun joy yaratdik
+                                            tadbirkorlar o'zlarini qanday boshlash va o'stirishni o'rganish uchun
+                                            korxonalar samarali.
+                                        </p>
+                                        <hr class="mb-5" />
+                                        <p>
+                                            Biz boshidan o'sishgacha va hatto hamma narsani qamrab olamiz
+                                            muvaffaqiyatsizlik. Dunyoda muvaffaqiyat nishonlanadi
+                                            bir nechta ob'ektiv, biz nima sodir bo'lishini aniqlash uchun shu yerdamiz
+                                            lift qadamidan keyin.
+                                        </p>
+                                        <div class="mt-8 lg:mt-[50px]">
+                                            <a href="#"
+                                                class="btn is-lime is-large btn-animation group inline-block rounded-[3px]"><span>Ko'piroq bilish</span></a>
+                                        </div>
+                                    </div>
+                                    <!-- Content Block Left -->
+                                    <!-- Content Block Right -->
+                                    <div class="jos relative order-2 md:order-1" data-jos_animation="fade-left">
+                                        <!-- Content Image -->
+                                        <img src="{% static 'assets/img/th-8/content-img-1.jpg' %}" alt="content-img-1" width="523"
+                                            height="450" class="h-auto w-full rounded-[10px]" />
+                                        <!-- Content Shape -->
+                                        <img src="{% static 'assets/img/th-8/content-card-1.png' %}" alt="content-shape-1" width="304"
+                                            height="104"
+                                            class="jos absolute bottom-6 left-full hidden -translate-x-1/2 xl:inline-block"
+                                            data-jos_animation="fade-up" data-jos_delay="0.3" />
+                                    </div>
+                                    <!-- Content Block Right -->
+                                </div>
+                                <!-- Content Area Single -->
+
+                                <!-- Content Area Single -->
+                                <div class="grid items-center gap-10 md:grid-cols-2 lg:gap-24 xl:gap-60">
+                                    <!-- Content Block Left -->
+                                    <div class="jos" data-jos_animation="fade-left">
+                                        <!-- Section Wrapper -->
+                                        <div>
+                                            <!-- Section Block -->
+                                            <div class="mb-5">
+                                                <h2
+                                                    class="font-PublicSans text-4xl font-bold leading-[1.14] text-[#121212] lg:text-left lg:text-5xl xl:text-[56px]">
+                                                    Bizning vazifamiz sizning biznesingizni qurishdir
+                                                </h2>
+                                            </div>
+                                            <!-- Section Block -->
+                                        </div>
+                                        <!-- Section Wrapper -->
+                                        <p>
+                                            Bizning yozuvchilar, ishlab chiquvchilar va ta'sir o'tkazuvchilar jamoasi
+                                            ba'zilari bilan biznesni boshlash haqida o'rganishga yordam berishga tayyor
+                                            ilhom.
+                                        </p>
+                                        <ul class="grid lg:grid-cols-2 flex-col gap-5 font-semibold">
+                                            <li>
+                                                <span class="mr-3 inline-block text-xl text-ColorPurple"><i
+                                                        class="fa-solid fa-badge-check"></i></span>
+                                                        Jamoa bilan muvofiqlashtirish
+                                            </li>
+                                            <li>
+                                                <span class="mr-3 inline-block text-xl text-ColorPurple"><i
+                                                        class="fa-solid fa-badge-check"></i></span>
+                                                        Vaqt jadvallarini kuzatib boring
+                                            </li>
+                                            <li>
+                                                <span class="mr-3 inline-block text-xl text-ColorPurple"><i
+                                                        class="fa-solid fa-badge-check"></i></span>
+                                                        Fikrlarni baham ko'ring
+                                            </li>
+                                            <li>
+                                                <span class="mr-3 inline-block text-xl text-ColorPurple"><i
+                                                        class="fa-solid fa-badge-check"></i></span>
+                                                        Barcha maqsadlaringizga erishing
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Content Block Left -->
+                                    <!-- Content Block Right -->
+                                    <div class="jos relative" data-jos_animation="fade-right">
+                                        <!-- Content Image -->
+                                        <img src="{% static 'assets/img/th-8/content-img-2.jpg' %}" alt="content-img-2" width="520"
+                                            height="450" class="h-auto w-full rounded-[10px]" />
+                                        <!-- Content Shape -->
+                                        <img src="{% static 'assets/img/th-8/content-card-2.png' %}" alt="content-card-2" width="282"
+                                            height="251"
+                                            class="jos absolute bottom-6 left-0 hidden -translate-x-1/2 xl:inline-block"
+                                            data-jos_animation="fade-up" data-jos_delay="0.3" />
+                                    </div>
+                                    <!-- Content Block Right -->
+                                </div>
+                                <!-- Content Area Single -->
+                            </div>
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Section Space -->
+
+                    <!-- Content Shape -->
+                    <div class="absolute hidden xl:inline-block right-[60px] top-1/3 -z-10 rotate-[29deg]">
+                        <img src="{% static 'assets/img/elements/home-8-dot-shape.svg' %}" alt="home-8-dot-shape" width="126"
+                            height="275" />
+                    </div>
+                </div>
+            </section>
+            <!--...::: Content Section End :::... -->
+
+            <!--...::: Service Section Start :::... -->
+            <section class="section-service">
+                <!-- Section Background -->
+                <div class="relative z-10 bg-[#121212]">
+                    <!-- Section Space -->
+                    <div class="section-space">
+                        <!-- Section Container -->
+                        <div class="container-default">
+                            <!-- Section Content Wrapper -->
+                            <div class="jos mb-[60px] xl:mb-20">
+                                <!-- Section Content Block -->
+                                <div class="mx-auto flex max-w-[700px] flex-col items-center justify-center">
+                                    <h2
+                                        class="mb-5 text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#FDFBF9] lg:text-5xl xl:text-[56px]">
+                                        Sizning biznesingiz qiymatini oshirish uchun ajoyib xizmatlar
+                                    </h2>
+
+                                    <p class="text-center text-[#FDFBF9]/80">
+                                        Biz boshlang'ich murabbiy sifatida ishlaydigan yoki mavjud bo'lgan xizmatlarni taqdim etamiz
+                                        qo'shimcha qiymat taklifining bir qismi sifatida konsalting xizmatlari
+                                        sizning biznesingiz.
+                                    </p>
+                                </div>
+                                <!-- Section Content Block -->
+                            </div>
+                            <!-- Section Content Wrapper -->
+
+                            <!-- Service Block -->
+                            <div class="grid gap-x-8 gap-y-6 lg:grid-cols-2 xl:gap-x-[100px] xxl:gap-x-[146px]">
+                                <!-- Service List -->
+                                <div>
+                                    <!-- Service Item -->
+                                    <div class="jos border-b border-[#FDFBF9]/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0"
+                                        data-jos_delay="0">
+                                        <a class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-ColorLime xl:text-2xl xxl:text-[26px]'
+                                            href='https://t.me/appclouduz_bot'>
+                                            1. Loyiha boshqaruvi bilan shug'ullanish
+                                            <span class="inline-block -rotate-[30deg] text-2xl"><i
+                                                    class="fa-light fa-arrow-right"></i></span>
+                                        </a>
+                                    </div>
+                                    <!-- Service Item -->
+                                    <!-- Service Item -->
+                                    <div class="jos border-b border-[#FDFBF9]/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0"
+                                        data-jos_delay="0.3">
+                                        <a class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-ColorLime xl:text-2xl xxl:text-[26px]'
+                                            href='https://t.me/appclouduz_bot'>
+                                            2. Operatsiyalar va delegatsiyalar tuzish
+                                            <span class="inline-block -rotate-[30deg] text-2xl"><i
+                                                    class="fa-light fa-arrow-right"></i></span>
+                                        </a>
+                                    </div>
+                                    <!-- Service Item -->
+                                    <!-- Service Item -->
+                                    <div class="jos border-b border-[#FDFBF9]/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0"
+                                        data-jos_delay="0.6">
+                                        <a class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-ColorLime xl:text-2xl xxl:text-[26px]'
+                                            href='https://t.me/appclouduz_bot'>
+                                            3. Human resource management
+                                            <span class="inline-block -rotate-[30deg] text-2xl"><i
+                                                    class="fa-light fa-arrow-right"></i></span>
+                                        </a>
+                                    </div>
+                                    <!-- Service Item -->
+                                </div>
+                                <!-- Service List -->
+                                <!-- Service List -->
+                                <div>
+                                    <!-- Service Item -->
+                                    <div class="jos border-b border-[#FDFBF9]/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0"
+                                        data-jos_delay="0">
+                                        <a class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-ColorLime xl:text-2xl xxl:text-[26px]'
+                                            href='https://t.me/appclouduz_bot'>
+                                            4. Jarayonning bosqichma-bosqich rivojlanishi
+                                            <span class="inline-block -rotate-[30deg] text-2xl"><i
+                                                    class="fa-light fa-arrow-right"></i></span>
+                                        </a>
+                                    </div>
+                                    <!-- Service Item -->
+                                    <!-- Service Item -->
+                                    <div class="jos border-b border-[#FDFBF9]/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0"
+                                        data-jos_delay="0.3">
+                                        <a class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-ColorLime xl:text-2xl xxl:text-[26px]'
+                                            href='https://t.me/appclouduz_bot'>
+                                            5. Umumiy sifat va standartlarni ta'minlash
+                                            <span class="inline-block -rotate-[30deg] text-2xl"><i
+                                                    class="fa-light fa-arrow-right"></i></span>
+                                        </a>
+                                    </div>
+                                    <!-- Service Item -->
+                                    <!-- Service Item -->
+                                    <div class="jos border-b border-[#FDFBF9]/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0"
+                                        data-jos_delay="0.6">
+                                        <a class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-ColorLime xl:text-2xl xxl:text-[26px]'
+                                            href='https://t.me/appclouduz_bot'>
+                                            6. Loyiha A/B testini solishtiring
+                                            <span class="inline-block -rotate-[30deg] text-2xl"><i
+                                                    class="fa-light fa-arrow-right"></i></span>
+                                        </a>
+                                    </div>
+                                    <!-- Service Item -->
+                                </div>
+                                <!-- Service List -->
+                            </div>
+                            <!-- Service Block -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Section Space -->
+
+                    <!-- Section Shape - Dot -->
+                    <div class="absolute top-[100px] -z-10 hidden xxl:left-[44px] xxl:inline-block">
+                        <img src="{% static 'assets/img/elements/home-8-dot-shape-2.svg' %}" alt="home-8-dot-shape-2" width="332"
+                            height="244" />
+                    </div>
+
+                    <!-- Section Shape - Arc -->
+                    <div class="absolute left-0 top-0 -z-10 w-full">
+                        <img src="{% static 'assets/img/elements/arc-shape-black.png' %}" alt="arc-shape-black" width="1600"
+                            height="94" class="w-full" />
+                    </div>
+                </div>
+                <!-- Section Background -->
+            </section>
+            <!--...::: Service Section End :::... -->
+
+            <!--...::: Content Section Start :::... -->
+            <section class="section-content" id="section-feature">
+                <!-- Section Space -->
+                <div class="section-space">
+                    <!-- Section Container -->
+                    <div class="container-default">
+                        <div class="flex flex-col gap-y-20 lg:gap-y-[100px] xl:gap-y-[120px]">
+                            <!-- Content Area Single -->
+                            <div class="grid items-center gap-10 md:grid-cols-2 lg:gap-24 xl:gap-60">
+                                <!-- Content Block Left -->
+                                <div class="jos" data-jos_animation="fade-right">
+                                    <!-- Section Wrapper -->
+                                    <div>
+                                        <!-- Section Block -->
+                                        <div class="mb-5">
+                                            <h2
+                                                class="font-PublicSans text-4xl font-bold leading-[1.14] text-[#121212] lg:text-left lg:text-5xl xl:text-[56px]">
+                                                Oddiy, kuchli va samarali jarayon
+                                            </h2>
+                                        </div>
+                                        <!-- Section Block -->
+                                    </div>
+                                    <!-- Section Wrapper -->
+                                    <p class="mb-5">
+                                        Biz eng yaxshi, ammo rasmiy va oddiy ish jarayoniga amal qilamiz
+                                        biznes o'sishini maksimal darajada oshirish uchun. Biz hamma narsani yopamiz
+                                        strategiyadan, marketingdan va o'sishdan.
+                                    </p>
+                                    <div class="mt-8 lg:mt-[50px]">
+                                        <a href="#"
+                                            class="btn is-lime is-large btn-animation group inline-block rounded-[3px]"><span>Boshlash</span></a>
+                                    </div>
+                                </div>
+                                <!-- Content Block Left -->
+                                <!-- Content Block Right -->
+                                <div class="jos" data-jos_animation="fade-left">
+                                    <!-- Content Image -->
+                                    <img src="{% static 'assets/img/th-8/content-img-3.png' %}" alt="content-img-3" width="636"
+                                        height="501" />
+                                </div>
+                                <!-- Content Block Right -->
+                            </div>
+                            <!-- Content Area Single -->
+                        </div>
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!--...::: Content Section End :::... -->
+
+            <!-- Background Shape -->
+            <div class="absolute -z-10 hidden xl:left-10 xl:top-[52%] xl:inline-block xxl:left-[90px] xxl:top-[49%]">
+                <img src="{% static 'assets/img/elements/home-8-dot-shape-3.svg' %}" alt="home-8-dot-shape-3" width="209"
+                    height="297" />
+            </div>
+            <!-- Background Shape -->
+
+            <!--...::: Video Section Start :::... -->
+            <section class="section-video">
+                <!-- Section Space -->
+                <div class="section-space-bottom">
+                    <!-- Section Container -->
+
+                      {% for informationpage in informationpage%}
+                            <div class="container-default">
+                                <!-- Section Content Wrapper -->
+                                <div class="jos mb-[60px] xl:mb-20">
+                                    <!-- Section Content Block -->
+                                    <div class="mx-auto flex max-w-[700px] flex-col items-center justify-center">
+                                        <h2
+                                            class="mb-5 text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#1212121] lg:text-5xl xl:text-[56px]">
+                                           {{informationpage.title_uz}}
+                                        </h2>
+
+                                        <p class="text-center">
+                                           {{informationpage.short_title_uz}}
+                                        </p>
+                                    </div>
+                                    <!-- Section Content Block -->
+                                </div>
+                                <!-- Section Content Wrapper -->
+
+                                <!-- Video Block -->
+                                <div class="jos">
+                                    <div class="relative flex items-center justify-center">
+                                        <img src="{% static 'assets/img/th-8/video-img.jpg' %}" alt="video-img" width="1296" height="620"
+                                            class="h-auto w-full" />
+                                        <a data-fslightbox="gallery" href="{{informationpage.video_link}}"
+                                            class="group group absolute flex h-[100px] w-[100px] items-center justify-center rounded-[50%] bg-ColorLime text-[#121212]"
+                                            aria-label="video-play">
+                                            <span
+                                                class="text-2xl transition-all duration-300 ease-linear group-hover:scale-110"><i
+                                                    class="fa-solid fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Video Block -->
+                            </div>
+                            <!-- Section Container -->
+                        </div>
+                {% endfor %}
+
+
+                <!-- Section Space -->
+            </section>
+            <!--...::: Video Section End :::... -->
+
+            <!-- Horizontal Text Slider -->
+            <div
+                class="overflow-hidden bg-[#121212] py-5 text-3xl font-bold uppercase leading-[1.4] tracking-widest text-white">
+                <!-- Horizontal Slider Block-->
+                <div class="horizontal-slide-from-right-to-left flex gap-x-[30px]">
+                    <span class="flex whitespace-nowrap">Loyiha g'oyangiz bormi? Bizning bepul taklifimizdan hozir foydalaning!
+                    </span>
+                    <img src="{% static 'assets/img/icons/icon-purple-flash.svg' %}" alt="arm-icon" width="28" height="35" />
+                    <span class="flex whitespace-nowrap">Loyiha g'oyangiz bormi? Bizning bepul taklifimizdan hozir foydalaning!
+                    </span>
+                    <img src="{% static 'assets/img/icons/icon-purple-flash.svg' %}" alt="arm-icon" width="28" height="35" />
+                    <span class="flex whitespace-nowrap">Loyiha g'oyangiz bormi? Bizning bepul taklifimizdan hozir foydalaning!
+                    </span>
+                    <img src="{% static 'assets/img/icons/icon-purple-flash.svg' %}" alt="arm-icon" width="28" height="35" />
+                    <span class="flex whitespace-nowrap">Loyiha g'oyangiz bormi? Bizning bepul taklifimizdan hozir foydalaning!
+                    </span>
+                    <img src="{% static 'assets/img/icons/icon-purple-flash.svg' %}" alt="arm-icon" width="28" height="35" />
+                </div>
+                <!-- Horizontal Slider Block-->
+            </div>
+            <!-- Horizontal Text Slider -->
+
+            <!--...::: Pricing Section Start :::... -->
+            <section class="section-pricing" id="section-pricing">
+                <div class="relative z-10">
+                    <!-- Section Space -->
+                    <div class="section-space">
+                        <!-- Section Container -->
+                        <div class="container-default">
+                            <!-- Section Content Wrapper -->
+                            <div class="jos">
+                                <!-- Section Content Block -->
+                                <div class="mx-auto max-w-[636px]">
+                                    <div class="mb-5">
+                                        <h2
+                                            class="text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#1212121] lg:text-5xl xl:text-[56px]">
+                                            Bizning narx rejalarimiz sizning foydangizga mo'ljallangan
+                                        </h2>
+                                    </div>
+                                    <p class="text-center">
+                                        Har qanday biznesni boshlash qimmatga tushadi, shuning uchun siz aniqlab olishingiz kerak
+                                        xarajatlarni qanday qoplaysiz. Sizda moliyalashtirish yo'llari bor
+                                        sizning startapingiz
+                                    </p>
+                                </div>
+                                <!-- Section Content Block -->
+                            </div>
+                            <!-- Section Content Wrapper -->
+
+
+                         {% for price_department in price_department%}
+                                    <!-- Pricing Area -->
+                                    <div class="jos">
+                                        <!-- Pricing Button Block -->
+                                        <div class="my-[50px] flex flex-row items-center justify-center gap-6">
+                                            <span class="font-bold">Oyiga</span>
+
+                                            <!-- Toggle Button -->
+                                            <label for="toggle" class="flex cursor-pointer items-center">
+                                                <!-- toggle -->
+                                                <span class="relative h-[35px] w-[70px] rounded-[35px] bg-[#121212]">
+                                                    <!-- hidden input -->
+                                                    <input id="toggle" type="checkbox" class="hidden"
+                                                        onclick="toggleSwitch()" />
+                                                    <!-- dot -->
+                                                    <span
+                                                        class="toggle_dot absolute h-[35px] w-[35px] rounded-full bg-[#C1FF00] transition-all duration-300"></span>
+                                                </span>
+                                            </label>
+                                            <!-- Toggle Button -->
+                                            <span class="font-bold">Yiliga</span>
+                                        </div>
+                                        <!-- Pricing Button Block -->
+
+                                        <!-- Pricing Content Block -->
+                                        <div class="mx-auto max-w-[1076px]">
+                                            <div
+                                                class="flex flex-col items-center rounded-[10px] border border-ColorBlack bg-white p-10 md:flex-row md:divide-x md:px-10 md:py-0 lg:px-[73px]">
+                                                <div
+                                                    class="w-full text-center md:w-1/2 md:py-[50px] md:pr-10 md:text-left lg:pr-20">
+                                                    <div class="text-xl leading-[1.6] tracking-tighter">
+                                                        Biznes uchun
+                                                    </div>
+                                                    <div class="month">
+                                                        <span
+                                                            class="font-PublicSans text-[50px] font-bold leading-[1.4] text-[#121212] lg:text-[56px]">$30.00</span>/ har oy
+                                                    </div>
+                                                    <div class="annual hidden">
+                                                        <span
+                                                            class="font-PublicSans text-[50px] font-bold leading-[1.4] text-[#121212] lg:text-[56px]">$300.00</span>/ hhar yil
+                                                    </div>
+                                                    <p>
+                                                        Sizga qancha pul kerakligini aniqlashning bir usuli - bu qilish zararsiz tahlil.
+                                                    </p>
+                                                </div>
+                                                <div class="w-full md:w-1/2 md:py-[50px] md:pl-10 lg:pl-20 xl:pl-32">
+                                                    <div class="mb-6 text-center font-semibold md:text-left">
+                                                        Bunga quyidagilar kiradi:
+                                                    </div>
+                                                    <!-- Pricing Info List -->
+                                                    <ul class="flex flex-col gap-3">
+                                                        <!-- Pricing Info Item -->
+                                                        <li class="font-semibold">
+                                                            <span class="text-[#9B51E0]"><i
+                                                                    class="fa-solid fa-badge-check"></i></span>
+                                                                   {{price_department.title1_uz}}
+                                                        </li>
+                                                        <!-- Pricing Info Item -->
+                                                        <!-- Pricing Info Item -->
+                                                        <li class="font-semibold">
+                                                            <span class="text-[#9B51E0]"><i
+                                                                    class="fa-solid fa-badge-check"></i></span>
+                                                                     {{price_department.title2_uz}}
+                                                            <!-- Pricing Info Item -->
+                                                            <!-- Pricing Info Item -->
+                                                        </li>
+
+                                                        <li class="font-semibold">
+                                                            <span class="text-[#9B51E0]"><i
+                                                                    class="fa-solid fa-badge-check"></i></span>
+                                                                     {{price_department.title3_uz}}
+                                                        </li>
+                                                        <!-- Pricing Info Item -->
+                                                        <!-- Pricing Info Item -->
+                                                        <li class="font-semibold">
+                                                            <span class="text-[#9B51E0]"><i
+                                                                    class="fa-solid fa-badge-check"></i></span>
+                                                                    {{price_department.title4_uz}}
+                                                        </li>
+                                                        <!-- Pricing Info Item -->
+                                                        <!-- Pricing Info Item -->
+                                                        <li class="font-semibold">
+                                                            <span class="text-[#9B51E0]"><i
+                                                                    class="fa-solid fa-badge-check"></i></span>
+                                                                     {{price_department.title5_uz}}
+                                                        </li>
+                                                        <!-- Pricing Info Item -->
+                                                    </ul>
+                                                    <!-- Pricing Info List -->
+
+                                                    <a class='btn mt-[30px] block rounded-[3px] border-none bg-[#C1FF00] py-[18px] text-ColorBlack hover:bg-[#a6ff00] xl:mt-[50px]'
+                                                        href="{% url 'contact_uz' %}">Rejani tanlang</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Pricing Content Block -->
+                                    </div>
+                            {% endfor %}
+
+                            <!-- Pricing Area -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Section Space -->
+
+                    <!-- Section Shape -->
+                    <div class="absolute top-28 -z-10 hidden xl:right-10 xl:inline-block xxl:right-[90px]">
+                        <img src="{% static 'assets/img/elements/home-8-dot-shape-4.svg' %}" alt="home-8-dot-shape-4" width="209"
+                            height="297" />
+                    </div>
+                    <!-- Section Shape -->
+                </div>
+            </section>
+            <!--...::: Pricing Section End :::... -->
+
+            <!-- Background Shape -->
+            <div class="absolute -z-10 hidden xl:left-10 xl:inline-block xxl:left-[90px] xxl:top-[75%]">
+                <img src="{% static 'assets/img/elements/home-8-dot-shape-5.svg' %}" alt="home-8-dot-shape-5" width="97"
+                    height="226" />
+            </div>
+            <!-- Background Shape -->
+
+            <!--...::: Team Section Start :::... -->
+            <section class="section-team" id="section-team">
+                <!-- Section Space -->
+                <div class="section-space-bottom">
+                    <!-- Section Container -->
+                    <div class="container-default">
+                        <!-- Team Area -->
+                        <div
+                            class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.75fr_minmax(0,_1fr)] xl:gap-20 xxl:gap-[134px]">
+                            <!-- Content Block Left -->
+                            <div class="jos" data-jos_animation="fade-right">
+                                <!-- Section Wrapper -->
+                                <div>
+                                    <!-- Section Block -->
+                                    <div class="mb-5">
+                                        <h2
+                                            class="font-PublicSans text-4xl font-bold leading-[1.14] text-[#121212] lg:text-left lg:text-5xl xl:text-[56px]">
+                                            Ijodiy jamoamiz a'zolari bilan tanishing
+                                        </h2>
+                                    </div>
+                                    <!-- Section Block -->
+                                </div>
+                                <!-- Section Wrapper -->
+                                <p class="mb-5">
+                                    Biz kichik biznes uchun eng jozibali va mazmunli joy yaratish ustida ishlaymiz. Bizning jamoamiz har doim sizga yordam berishga tayyor.
+                                </p>
+                                <ul class="flex flex-col gap-5 font-semibold">
+                                    <li>
+                                        <span class="mr-3 inline-block text-xl text-ColorPurple"><i
+                                                class="fa-solid fa-badge-check"></i></span>
+                                                Malakali a'zolardan tashkil topgan jamoa
+                                    </li>
+                                    <li>
+                                        <span class="mr-3 inline-block text-xl text-ColorPurple"><i
+                                                class="fa-solid fa-badge-check"></i></span>
+                                                Sizga 24/7 elektron pochta va telefon orqali yordam berishga tayyor
+                                    </li>
+                                </ul>
+                                <div class="mt-8 lg:mt-[50px]">
+                                    <a href="#"
+                                        class="btn is-lime is-large btn-animation group inline-block rounded-[3px]"><span>Ko'proq ma'lumot</span></a>
+                                </div>
+                            </div>
+                            <!-- Content Block Left -->
+                            <!-- Team List -->
+                                    <div class="jos" data-jos_animation="fade-left">
+                                        <div class="grid grid-cols-1 gap-x-6 gap-y-[30px] sm:grid-cols-2 md:grid-cols-3">
+
+                                                    <!-- Team Item -->
+                                                    {% for team_department in team_department %}
+                                                    {% if forloop.counter0 < 6 %}
+                                                        <div class="group flex flex-col items-center justify-center text-center">
+                                                            <div class="mb-6 h-auto max-w-full overflow-hidden rounded-[50%]">
+                                                                <img src="{{team_department.image.url}}" alt="team-img-1" width="196"
+                                                                    height="196" class="h-full w-full object-cover" />
+                                                                    </div>
+                                                                        <div>
+                                                                    <div
+                                                                    class="mb-[5px] block text-xl font-semibold leading-[1.4] text-ColorDark">
+                                                                    {{team_department.name_lastname}}
+                                                                </div>
+                                                                <span>{{team_department.job_name}}</span>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                    {% endfor %}
+
+                                        </div>
+                                    </div>
+                            <!-- Team List -->
+                        </div>
+                        <!-- Team Area -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!--...::: Team Section End :::... -->
+
+            <!--...::: Blog Section Start :::... -->
+            <section class="section-blog">
+                <!-- Section Space -->
+                <div class="section-space">
+                    <!-- Section Container -->
+                    <div class="container-default">
+                        <!-- Section Content Wrapper -->
+                        <div class="jos mb-[60px] xl:mb-20">
+                            <!-- Section Content Block -->
+                            <div class="mx-auto max-w-[640px]">
+                                <div class="mb-5">
+                                    <h2
+                                        class="mb-5 text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#1212121] lg:text-5xl xl:text-[56px]">
+                                        Qo'shimcha ma'lumot olish uchun bizning maqolalarimiz va manbalarimizni ko'rib chiqing
+                                    </h2>
+                                </div>
+                                <p class="text-center">
+                                    Bloglarimizda ko'p ma'lumotlar berilgan. O'rganishingiz mumkin
+                                    bizning bloglarimizni o'qib, startap haqida ko'proq bilib oling. Vaqti keldi
+                                    biznesingiz uchun g'oyalarni o'ylab ko'ring
+                                </p>
+                            </div>
+                            <!-- Section Content Block -->
+                        </div>
+                        <!-- Section Content Wrapper -->
+
+                        <!-- Blog List -->
+                        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                            <!-- Blog Item -->
+
+                        {% for i in blog_detail %}
+                            {% if forloop.counter0 < 3 %}
+                                <div class="jos" data-jos_animation="flip-left">
+                                    <div class="group h-full rounded-[5px] border border-[#121212] p-5">
+                                        <!-- Blog Image -->
+                                        <div class="relative overflow-hidden rounded-[5px]">
+                                            <a class='block' href='https://t.me/appclouduz_bot'>
+                                                <img src="{{ i.image.url }}" alt="blog-img-1" width="376" height="280" class="h-auto w-full transition-all duration-300 group-hover:scale-105" />
+                                            </a>
+                                            <a href="#" class="absolute right-[10px] top-[10px] inline-block rounded-[3px] bg-[#FDFBF9] px-5 py-[10px] text-base font-bold hover:bg-ColorLime">
+                                                {{ i.ctg_name }}
+                                            </a>
+                                        </div>
+                                        <div class="mt-6">
+                                            <!-- Post Meta -->
+                                            <div class="mb-[15px] flex flex-col gap-x-[15px] gap-y-2 text-base font-bold xl:flex-row">
+                                                <a href="#" class="flex gap-[10px] hover:text-ColorPurple">
+                                                    <span class="text-lg"><i class="fa-regular fa-circle-user"></i></span>
+                                                    {{ i.name_lastname }}
+                                                </a>
+                                                <a href="#" class="flex gap-[10px] hover:text-ColorPurple">
+                                                    <span class="text-lg"><i class="fa-light fa-calendar"></i></span>
+                                                    {{ i.data }}
+                                                </a>
+                                            </div>
+                                            <a class='mb-[30px] block font-PublicSans font-bold leading-[1.35] text-[#121212] group-hover:text-ColorPurple xl:text-2xl xxl:text-[28px]' href='{{ blog_department.post_link }}'>
+                                                {{ i.short_descriptions_uz}}
+                                            </a>
+                                            <a class='mt-auto inline-flex items-center gap-x-2 text-base font-bold text-[#121212] hover:text-ColorPurple' href='{{ blog_department.post_link }}'>
+                                                Ko'proq ma'lumot
+                                                <span class="transition-all duration-300 ease-in-out hover:translate-x-2">
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+
+
+                        </div>
+                        <!-- Blog List -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!--...::: Blog Section End :::... -->
+        </main>
+
+        <!--...::: CTA Section Start :::... -->
+        <section class="section-cta relative z-30">
+            <!-- Negative Section Space -->
+            <div class="-mb-20 lg:-mb-40">
+                <!-- Section Container -->
+                <div class="container-default">
+                    <div class="relative z-10 rounded-[5px] bg-ColorPurple">
+                        <div class="py-[60px] lg:py-20 xl:py-[100px]">
+                            <div class="mx-auto max-w-full px-8 md:max-w-[80%] lg:max-w-[675px]">
+                                <h2
+                                    class="jos mb-5 text-center font-PublicSans text-4xl font-semibold leading-[1.14] text-[#1212121] text-white lg:text-5xl xl:text-[56px]">
+                                    Bepul maslahat olish uchun bugun biz bilan bog'laning!
+                                </h2>
+                                <p class="jos text-center text-white">
+                                    Savollaringizga javob olish uchun bizga xabar yuboring va biz sizga 24-48 soat ichida yoki imkon qadar tezroq javob beramiz.
+                                </p>
+                                <div class="jos flex flex-wrap justify-center gap-[18px]">
+                                    <a href="https://t.me/appclouduz_bot"
+                                        class="btn is-lime is-large btn-animation group inline-block rounded-[3px]"><span>Ariza yuboring</span></a>
+                                    <a href="{% url 'contact_uz' %}"
+                                        class="btn is-outline-white is-large btn-animation group inline-block rounded-[3px]"><span>Bog'lanish</span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Background Shape -->
+                        <div
+                            class="absolute -z-10 hidden xl:left-10 xl:top-20 xl:inline-block xxl:left-20 xxl:top-[100px]">
+                            <img src="{% static 'assets/img/elements/home-8-dot-shape-6.svg' %}" alt="home-3-content-img-shape-6"
+                                width="209" height="297" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Section Container -->
+            </div>
+            <!-- Section Space -->
+        </section>
+        <!--...::: CTA Section End :::... -->
+
+        <!--...::: Footer Section Start :::... -->
+        <footer class="section-footer z-20">
+            <div class="relative z-10 bg-[#121212]">
+                <div class="pt-20 lg:pt-[100px] xl:pt-32 xxl:pt-[200px]">
+                    <!-- Footer Area Center -->
+                    <div class="text-[#FDFBF9]/80">
+                        <!-- Footer Center Spacing -->
+                        <div class="py-[60px] lg:py-20">
+                            <!-- Section Container -->
+                            <div class="container-default">
+                                <!-- Footer Widget List -->
+                                <div
+                                    class="grid gap-x-16 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_repeat(3,_auto)] xl:gap-x-20 xxl:gap-x-[134px]">
+                                    <!-- Footer Widget Item -->
+                                    <div class="flex flex-col gap-y-7 md:col-span-3 lg:col-span-1">
+                                        <!-- Footer Logo -->
+                                        <a href='{% url "home" %}'>
+                                            <img src="{% static 'assets/img/logo-lime-light.png' %}" alt="Masco" width="109"
+                                                height="24" />
+                                        </a>
+                                        <!-- Footer Content -->
+                                        <div>
+                                            <!-- Footer About Text -->
+                                            <div class="lg:max-w-[416px]">
+                                                Sizning samaradorligingizni oshirish uchun biz IT xizmatlarining to'liq spektrini taklif etamiz biznes.
+                                            </div>
+                                            <!-- Footer Mail -->
+                                            <a href="appclouduz@gmail.com"
+                                                class="my-6 block underline-offset-4 transition-all duration-300 hover:underline">appclouduz@gmail.com</a>
+                                            <!-- Footer Social Link -->
+                                            <div class="flex flex-wrap gap-5">
+                                                <a href="https://t.me/appclouduz_bot" target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-[#FDFBF9]/10 text-sm text-[#FDFBF9] transition-all duration-300 hover:bg-ColorLime hover:text-[#121212]"
+                                                    aria-label="twitter">
+                                                    <i class="fa-brands fa-telegram"></i>
+                                                </a>
+                                                <a href="https://www.instagram.com/appclouduz" target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-[#FDFBF9]/10 text-sm text-[#FDFBF9] transition-all duration-300 hover:bg-ColorLime hover:text-[#121212]"
+                                                    aria-label="instagram">
+                                                    <i class="fa-brands fa-instagram"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Footer Content -->
+                                    </div>
+                                    <!-- Footer Widget Item -->
+
+                                    <!-- Footer Widget Item -->
+                                    <div class="flex flex-col gap-y-6 md:col-span-1 lg:col-span-1">
+                                        <!-- Footer Title -->
+                                        <div class="text-xl font-semibold capitalize">
+                                            Foydali sahifalar
+                                        </div>
+                                        <!-- Footer Title -->
+
+                                        <!-- Footer Navbar -->
+                                        <ul class="flex flex-col gap-y-[10px] capitalize">
+                                            <li class="nav-item nav-item-has-children">
+                                                <a class='nav-link-item drop-trigger' href='{% url "home" %}'>Asosiy-sahifa</a>
+                                            </li>
+                                            <li class="nav-item nav-item-has-children">
+                                                <a href="#section-about" class="nav-link-item drop-trigger">Batafsil</a>
+                                            </li>
+                                            <li class="nav-item nav-item-has-children">
+                                                <a href="#section-feature" class="nav-link-item drop-trigger">Xususiyat</a>
+                                            </li>
+                                            <li class="nav-item nav-item-has-children">
+                                                <a href="#section-pricing" class="nav-link-item drop-trigger">Narxlar</a>
+                                            </li>
+                                            <li class="nav-item nav-item-has-children">
+                                                <a href="#section-team" class="nav-link-item drop-trigger">Jamoa</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <!-- Footer Widget Item-->
+
+                                    <!-- Footer Widget Item -->
+                                    <div class="flex flex-col gap-y-6 md:col-span-1 lg:col-span-1">
+                                        <!-- Footer Title -->
+                                        <div class="text-xl font-semibold capitalize">
+                                            Resurslar
+                                        </div>
+                                        <!-- Footer Title -->
+
+                                        <!-- Footer Navbar -->
+                                        <ul class="flex flex-col gap-y-[10px] capitalize">
+                                            <li>
+                                                <a href="https://www.example.com/" target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Support</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.example.com/" target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Privacy
+                                                    policy</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.example.com/" target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Terms
+                                                    & Conditions</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.example.com/" target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Strategic
+                                                    finance</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.example.com/" target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline">Video
+                                                    guide</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Footer Widget Item -->
+                                </div>
+                                <!-- Footer Widget List -->
+                            </div>
+                            <!-- Section Container -->
+                        </div>
+                        <!-- Footer Center Spacing -->
+                    </div>
+                    <div>
+                        <!-- Footer Bottom Spacing -->
+                        <div class="bg-[#FDFBF9]/10 py-[18px] text-white/80">
+                            <!-- Section Container -->
+                            <div class="container-default">
+                                <div class="text-center">
+                                    &copy;Mualliflik huquqi 2024, Barcha huquqlar AppCloud tomonidan himoyalangan
+                                </div>
+                            </div>
+                            <!-- Section Container -->
+                        </div>
+                        <!-- Footer Bottom Spacing -->
+                    </div>
+
+                    <!-- Section Shape - Arc -->
+                    <div class="absolute left-0 top-0 -z-10 w-full">
+                        <img src="{% static 'assets/img/elements/arc-shape-black.png' %}" alt="arc-shape-black" width="1600"
+                            height="94" class="w-full" />
+                    </div>
+                </div>
+                <!-- Footer Bottom -->
+
+                <!-- Background Shape -->
+                <div class="absolute -z-10 hidden xl:right-10 xl:top-20 xl:inline-block xxl:right-20 xxl:top-[100px]">
+                    <img src="{% static 'assets/img/elements/home-8-dot-shape-7.svg' %}" alt="home-3-content-img-shape-7" width="268"
+                        height="291" />
+                </div>
+            </div>
+        </footer>
+        <!--...::: Footer Section End :::... -->
+    </div>
+
+
+{% endblock %}
